@@ -1,0 +1,19 @@
+[07-Nov-2019 08:02:34 UTC] PHP Fatal error:  Uncaught Google_Service_Exception: {
+ "error": {
+  "errors": [
+   {
+    "domain": "global",
+    "reason": "failedPrecondition",
+    "message": "Bad Request"
+   }
+  ],
+  "code": 400,
+  "message": "Bad Request"
+ }
+}
+ in /home/bgrbasli/public_html/gmail_app/vendor/google/apiclient/src/Google/Http/REST.php:118
+Stack trace:
+#0 /home/bgrbasli/public_html/gmail_app/vendor/google/apiclient/src/Google/Http/REST.php(94): Google_Http_REST::decodeHttpResponse(Object(GuzzleHttp\Psr7\Response), Object(GuzzleHttp\Psr7\Request), 'Google_Service_...')
+#1 /home/bgrbasli/public_html/gmail_app/vendor/google/apiclient/src/Google/Task/Runner.php(176): Google_Http_REST::doExecute(Object(GuzzleHttp\Client), Object(GuzzleHttp\Psr7\Request), 'Google_Service_...')
+#2 /home/bgrbasli/public_html/gmail_app/vendor/google/apiclient/src/Google/Http/REST.php(58): Google_Task_Runner->run()
+#3 /home/bgrbasli/public_html/gmail_app/vendor/google/apiclient/src/Google/Client.php(842): Google_Http_REST::execute(Object(GuzzleHttp\Client), Object(Guzz in /home/bgrbasli/public_html/gmail_app/vendor/google/apiclient/src/Google/Http/REST.php on line 118
