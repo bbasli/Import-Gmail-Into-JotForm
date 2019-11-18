@@ -1,4 +1,3 @@
-
 <html>
 <head>
 	<title> Gmail APP </title>
@@ -18,9 +17,8 @@
 
 	?>
 
-
 	<div class="full-container">
-	<!-- Just an image -->
+	
 		<nav class="navbar navbar-light bg-dark" id="my-navbar">
 		  <a class="navbar-brand" target="_blank" href="https://bgrbasli.com" id="linkk">
 		    <img src="images/logo.png" alt="JotForm" id="brand">
@@ -45,7 +43,5 @@
 
 	</div>
 
-
-	
 </body>
 </html>

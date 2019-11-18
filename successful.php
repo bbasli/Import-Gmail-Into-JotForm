@@ -1,5 +1,6 @@
 <html>
 <head>
+    
 	<title> Gmail APP </title>
 	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -8,9 +9,8 @@
 </head>
 <body>
 
-
 	<div class="full-container">
-	<!-- Just an image -->
+	
 		<nav class="navbar navbar-light bg-dark" id="my-navbar">
 		  <a class="navbar-brand" href="https://bgrbasli.com" id="linkk">
 		    <img src="images/logo.png" alt="JotForm" id="brand">
@@ -22,12 +22,11 @@
 			session_start();
 
 			if (isset($_SESSION['formID'])) {
-				# code...
 			
-			$formID = $_SESSION['formID'];
-			$editUrl = "https://www.jotform.com/build/" . $formID;
-			$submissionUrl = "https://www.jotform.com/submissions/" . $formID;
-			$sheetUrl = "https://www.jotform.com/sheets/" . $formID;
+    			$formID = $_SESSION['formID'];
+    			$editUrl = "https://www.jotform.com/build/" . $formID;
+    			$submissionUrl = "https://www.jotform.com/submissions/" . $formID;
+    			$sheetUrl = "https://www.jotform.com/sheets/" . $formID;
 		?>
 
 		<div class="jumbotron" id="jump">

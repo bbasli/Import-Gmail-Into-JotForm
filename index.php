@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div class="full-container">
-	<!-- Just an image -->
+	
 		<nav class="navbar navbar-light bg-dark" id="my-navbar">
 		  <a class="navbar-brand" href="https://bgrbasli.com" id="linkk">
 		    <img src="images/logo.png" width="30" height="30" alt="">
@@ -69,12 +69,10 @@
 	          window.JF.login(function success(){
 	                    apiKey = window.JF.getAPIKey();
 	                    formPicker();
-	                    //console.log("API key: " + apiKey);
+	                },
+	                function error(){
+	                    window.alert("Could not authorize user");
 	                }
-	                ,
-	                  function error(){
-	                      window.alert("Could not authorize user");
-	                  }
 	              );
 	    }
 
@@ -85,27 +83,14 @@
 	            search: true,
 	            onSelect: function(r) {
 	                var selectedIds = [];
-	                for(var i=0; i<r.length; i++) {
+	                for(var i=0; i<r.length; i++)
 	                    selectedIds.push(r[i].id);
-	                }
 	                
 	                const xhr = new XMLHttpRequest();
 	                xhr.open("POST", "passer.php", true);
 	                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	                xhr.send("apiKey="+apiKey+"&formID="+selectedIds);
-	                console.log(selectedIds);
-	                location.href = "authentication.php";
-	            },
-	            onReady: function() {
-	                console.log('Form modal rendered');
-	            },
-	            onClose : function() {
-	                console.log('Form picker closed');
-	            },
-	            onLoad : function(formList, markup) {
-	                console.log('All forms loaded', formList);
-	                console.log('Forms list HTML markup', markup);
-
+	                top.location = "authentication.php";
 	            }
 	        });
 	    }

@@ -2,11 +2,13 @@
 <html>
 <head>
 	<title> Gmail APP </title>
+	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	
 	<link rel="stylesheet" type="text/css" href="createSub.css">
+	
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	
 </head>
@@ -30,7 +32,6 @@
         
 		        $valid_form = $_SESSION['formID'];
 		        $apiKey = $_SESSION['apiKey'];
-		        //echo $valid_form . "  ----  " . $apiKey;
 		        $jotformAPI = new JotForm($apiKey);
 		        $form_title = $jotformAPI->getForm($valid_form)['title'];
 		        
@@ -39,23 +40,23 @@
 		        $fields = [];
 		        $fields[0] = "Choose field for Email Subject";
 		        $fields[1] = "Choose field for Email Address";
-		        $fields[2] = "Choose field for Email Name";
+		        $fields[2] = "Choose field for Sender Name";
 		        $fields[3] = "Choose field for Email Content";
 		        $fields[4] = "Choose field for Email Date";
-		        //print_r($questions);
 
 		        ?>
 
 		<div id="mycontainer">
-			<h2 align='center' style='margin-top:2rem; margin-bottom:1.25rem;'>IMPORT GMAIL</h2>
+			<h2 align='center' style='margin-top:2rem; margin-bottom:1.25rem;'>IMPORT GMAIL TO JOTFORM</h2>
 			<div class="container">
 				<p> In this app can get 5 major part of email. These are 
-				email subject, 
+				email subject,  
 				email content, 
 				email retrieved date, 
 				sender email address 
 				and sender name. For submitting these data, you have to choose form's field for each part. 
-				If there is any suitable form field, you can create an appropriate field instantly by clicking "Add new question". </p>
+				If there is any suitable form field, you can create an appropriate field instantly by clicking "Add new question". 
+				After you put your field name press ENTER to add.  </p>
 			</div>
 				
 			<form action="" method="post" id="info">
@@ -106,7 +107,6 @@
 
 							if (!is_numeric($subject_id)){
 								createQuestion($jotformAPI, $valid_form, $subject_id, "Subject");
-	                                	//print_r($jotformAPI->getFormQuestions($valid_form));
 								$subject_id = getQuestionId($jotformAPI, $valid_form, $subject_id, "control_textbox");
 							}
 							if (!is_numeric($email_id)){
@@ -126,16 +126,12 @@
 								$date_id = getQuestionId($jotformAPI, $valid_form, $date_id, "control_datetime");
 							}
 	                                
-							//echo $subject_id . " " . $email_id . " " . $name_id . " " . $content_id . " " . $date_id . " " . $search . " " . $in . "<br />";
 							if ($email_id === "-1" or $name_id === "-1" or $content_id === "-1" or $subject_id === "-1" or $date_id === "-1") {
-								# code...
-								$error_msg = "You have to select all neccessary field!";
+								//$error_msg = "You have to select all neccessary field!";
 							}else
 								if (isset($_SESSION['result'])) {
 								    $result = $_SESSION['result'];
-								    //echo "SIZE: " . $count($resul);
 								    for($i = 1; $i<count($result); $i++) {
-								        	//echo "Date: " . $result[$i][4]."<br/><br/>";
 								        	$date = date("d-m-Y", strtotime($result[$i][4]));
 								            $dates = explode("-",$date);
 								            
@@ -163,7 +159,7 @@
 	                                        }
 									}
 
-									unset($_SESSION['result']);
+									//unset($_SESSION['result']);
 									//unset($_SESSION['token']);
 									header("Location: successful.php");             
 								}
@@ -174,7 +170,6 @@
 
 			function createQuestion($api, $formID, $text_name, $type) {
 				if ($type === "Subject") {
-					# code...
 					$question = array  (
 				      'defaultValue' => '',
 				      'description' => '',
@@ -194,7 +189,6 @@
 				  );
 				}
 				elseif ($type === "Address") {
-					# code...
 					$question = array  (
 					    'allowCustomDomains' => 'No',
 					    'allowedDomains' => '',
@@ -221,7 +215,6 @@
 					  );
 				}
 				elseif ($type === "Name") {
-					# code...
 					$question = array  (
 				      'defaultValue' => '',
 				      'description' => '',
@@ -241,7 +234,6 @@
 				  );
 				}
 				elseif ($type === "Content") {
-					# code...
 					$question = array  (
 						'cols' => '40',
 					    'defaultValue' => '',
@@ -309,7 +301,6 @@
 			function getQuestionId($api, $formID, $text_name, $type) {
 				$questions = $api->getFormQuestions($formID);
 				foreach ($questions as $question) {
-				 	# code...
 				 	if (array_key_exists("type", $question) and !array_key_exists("headerType", $question))
 				 		if ($question['type'] === $type) {
 				 			if ($question['text'] === $text_name) {
@@ -324,23 +315,18 @@
 			function isAvailable($result, $index ,$part, $target) {
 				switch ($part) {
 					case '1':
-						# code...
 						return stripos($result[$index][1], $target);
 						break;
 					case '2':
-						# code...
 						return stripos($result[$index][0], $target);
 						break;
 					case '3':
-						# code...
 						return stripos($result[$index][2], $target);
 						break;
 					case '4':
-							# code...
 						return stripos($result[$index][3], $target);
 						break;	
 					default:
-						# code...
 						return false;
 						break;
 				}

@@ -3,14 +3,14 @@
     $('#box_0').on('change', function () {
         $('select option:disabled').prop('disabled', false);
         var sel = $('option:selected', this).index();
-        if ($.isNumeric($(this).val()))
+        if ($.isNumeric($(this).val()) && $(this).val() !== "0")
             $('#box_2 option:eq("' + sel + '")').prop('disabled', true);
     });
 
     $('#box_2').on('change', function () {
         $('select option:disabled').prop('disabled', false);
         var sel = $('option:selected', this).index();
-        if ($.isNumeric($(this).val()))
+        if ($.isNumeric($(this).val()) && $(this).val() !== "0")
             $('#box_0 option:eq("' + sel + '")').prop('disabled', true);
     });
 
@@ -53,3 +53,17 @@
           return false;
        }
     });
+    
+    $('#submit').on("click", function(event) {
+        if($('#box_0').val() === "-1" || $('#box_1').val() === "-1" || $('#box_2').val() === "-1" 
+            || $('#box_3').val() === "-1" || $('#box_4').val() === "-1")  {
+                
+                $('#error').text("You have to select all neccessary field!");
+                event.preventDefault();
+            }
+    });
+    
+    
+    
+    
+    

@@ -7,7 +7,6 @@ class Gmail  {
     }
     
     function listMessages() {
-      ini_set('memory_limit', '1024M');
       $sender_address = $sender_name = $msg_subject = $msg_content = $msg_date = "";
       $result = array();
       $service = new Google_Service_Gmail($this->client);
@@ -72,16 +71,15 @@ class Gmail  {
             }
       
         if (strlen($sender_address)>0 and strlen($sender_name)>0 and strlen($msg_subject)>0 and strlen($msg_date)>0 and strlen($msg_content)>0 )  {
-                //echo "<pre>" . $sender_address . "  -  " . $msg_subject . "  -  " . $msg_date . "</pre>";
-                //echo "<pre>" . $sender_name . "  !!!!!!!  " . $msg_content . "</pre>";
-                //echo $msg_content ."<br/> !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! <br/>";
-                //return $msg_content;
-                //die();
                 $sub = array($sender_address, $sender_name, $msg_subject, $msg_content, $msg_date);
                 array_push($result, $sub);
         }
+      
+          
       }
+        
         return $result;
+        
     }
     
 }

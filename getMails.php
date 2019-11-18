@@ -17,9 +17,9 @@ class getMails  {
 
         if ($conn->is_connected()) {
             require_once("gmail.php");
-            //session_start();
             $gmail = new Gmail($conn->get_client());
-            $_SESSION['result'] = $gmail->listMessages();
+            if (!isset($_SESSION['result']))
+                $_SESSION['result'] = $gmail->listMessages();
             header("Location: createSubmissions.php");
         }
         else  {
@@ -28,6 +28,5 @@ class getMails  {
     }
     
 }
-    if(isset($_SESSION['var']))
 
 ?>
