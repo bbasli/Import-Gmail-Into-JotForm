@@ -17,12 +17,13 @@ if (isset($_COOKIE['formID'])) {
             To See Your Submission
         </a> <br/>
         <a class="button" href="<?php echo $sheetUrl; ?>" target="_blank" class="button">
-            To See Your Submission in Sheets
+            To See Your Submission on Tables
         </a> <br/>
         <a class="button" href="index.php" target="_blank" class="button"> To Go Home Page </a>
     </div>
     <?php
-} else {
+}
+else {
     ?>
     <div class="jumbotron" id="jump">
         <img src="images/cancel-icon.png" id="check-circle"><br/><br/>

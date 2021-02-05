@@ -1,18 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=McLaren&display=swap');
 
+* {
+    padding: 0;
+    margin: 0;
+}
+
 body {
     height: 100vh;
 }
 
 .full-container {
-    line-height: 1.7;
     display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 68px;
+    flex-direction: column;
 }
 
 #linkk {
@@ -23,10 +22,9 @@ body {
 }
 
 #my-navbar {
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.8);
     width: 100%;
-    position: absolute;
-    top: 0;
+    padding: 0 16px;
 }
 
 .job {
@@ -46,6 +44,55 @@ hr {
     width: 100%;
     height: auto;
     margin: 30px 0 0 5px;
+}
+
+#searchForm {
+    width: 500px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #b23121;
+    border-color: #b23121;
+    border: none;
+    border-radius: 5px;
+    padding: 75px 50px 125px 50px;
+    color: white;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.8);
+}
+
+.searchField {
+    margin-top: 30px;
+    width: 100%;
+}
+
+#searchForm input[type="text"],
+#searchForm select,
+#searchForm select option {
+    height: 35px;
+    font-size: 16px !important;
+}
+
+#searchForm label {
+    font-size: 20px;
+}
+
+#searchForm input[type="text"] {
+    padding: 10px;
+}
+
+#searchForm input[type="submit"] {
+    border-color: #ffc107;
+    background: #ffc107;
+    border: none;
+    border-radius: 5px;
+    height: 50px;
+    width: 175px;
+    margin-top: 50px;
+}
+
+#searchForm .submit {
+    display: flex;
+    justify-content: space-between;
 }
 
 #footer {

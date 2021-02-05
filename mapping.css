@@ -1,0 +1,192 @@
+.form-preview {
+    border-radius: 10px;
+    width: 720px;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    margin: 0 0 50px 0;
+}
+
+.main {
+    display: flex;
+    width: 1440px;
+    height: 700px;
+    margin: 50px auto 0 auto;
+}
+
+.u-ptb2-prl7 {
+    padding: 2px 7px;
+}
+
+.u-border {
+    border: 2px solid rgb(75, 188, 239);
+    border-radius: 5px;
+    background-color: #EEF6FD;
+}
+
+.email {
+    display: flex;
+    flex-direction: column;
+    padding: 25px 30px 25px 20px;
+    align-items: center;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 720px;
+}
+
+.email-header {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    padding-left: 30px;
+}
+
+.email-star {
+    color: orange;
+}
+
+.printer-icon {
+    position: absolute;
+    right: 0;
+}
+
+.email-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 4px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: darkgrey;
+    background-color: lightgray;
+}
+
+.email-subject {
+    font-size: 25px;
+}
+
+.user-avatar {
+    border-radius: 50%;
+    margin-right: 10px;
+    font-size: 35px;
+    color: gray;
+}
+
+.mr-10 {
+    margin-right: 10px;
+}
+
+.email-main {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 25px;
+}
+
+.email-body-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.email-sender {
+    display: flex;
+    align-items: center;
+}
+
+.email-sender-name {
+    font-weight: bold;
+}
+
+.email-address {
+    color: grey;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.email-header-others {
+    display: flex;
+    font-size: 14px;
+    font-weight: 500;
+    color: grey;
+    align-items: center;
+    justify-content: space-between;
+    width: 45%;
+}
+
+.email-date {
+}
+
+.email-body-header {
+    width: 100%;
+}
+
+.email-body-header-bottom {
+    display: flex;
+    align-items: center;
+    color: grey;
+    padding-left: 5px;
+}
+
+.email-content {
+    margin: 10px 50px 0 0;
+    padding: 10px 20px;
+}
+
+.email-body-content-text {
+    margin: 0;
+}
+
+.email-content-img {
+    width: 100%;
+    max-height: 250px;
+}
+
+.svg {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.svg line {
+    stroke-width: 2px;
+    stroke: rgb(75, 188, 239);
+}
+
+.fields {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-header {
+    display: flex;
+    align-items: center;
+    color: #FFF;
+    padding: 12px;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: sans-serif;
+}
+
+#nextButton {
+    margin-left: 45%;
+    margin-top: 25px;
+    padding: 10px 25px;
+    background-color: #ffc107;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+}
+
+
+/*.field:hover {
+    border: 2px solid red;
+}*/

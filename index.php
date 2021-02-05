@@ -6,11 +6,12 @@
             <h1 class="display-5">Gmail Import App</h1>
             <p class="lead">
                 In a few steps, you can easily import your gmails into JotForm and you can handle your emails using
-                submissions and JotForm Sheets.
+                submissions and JotForm Tables.
             </p>
             <hr class="my-4">
             <p></p>
-            <button class="btn btn-warning btn-lg mt-5" onclick="loginFunction()">SELECT FORM</button>
+            <button class="btn btn-warning btn-lg mt-5" onclick="loginFunction(1)">SELECT FORM</button>
+            <button class="btn btn-warning btn-lg mt-5" onclick="loginFunction(2)">CREATE FORM</button>
         </div>
         <div class="col-lg-6">
             <img src="images/gmail-logo.png" id="visual">
@@ -25,11 +26,10 @@
     window.JF = JF;
     <?php
     session_start();
-    if (isset($_SESSION['apiKey']))
-    {
-        echo "var apiKey = '" . $_SESSION['apiKey'] . "';";
-    }
-    else {
+    if (isset($_COOKIE['apiKey'])) {
+        if ($_COOKIE['apiKey'])
+            echo "var apiKey = '" . $_COOKIE['apiKey'] . "';";
+    } else {
         echo "var apiKey = '';";
     }
     ?>
@@ -44,16 +44,21 @@
         });
     }
 
-    function loginFunction() {
+    function loginFunction(choice) {
         window.JF.login(function success() {
                 apiKey = window.JF.getAPIKey();
-                formPicker();
+                document.cookie = "apiKey=" + apiKey;
+                if (choice == "1")
+                    formPicker();
+                else
+                    top.location = "createForm.php";
             },
             function error() {
                 window.alert("Could not authorize user");
             }
         );
     }
+
     function formPicker() {
         window.JF.FormPicker({
             multiSelect: false,
@@ -64,8 +69,7 @@
                 for (var i = 0; i < r.length; i++)
                     selectedIds.push(r[i].id);
                 document.cookie = "formID=" + selectedIds;
-                document.cookie = "apiKey=" + apiKey;
-                top.location = "gmailAPI.php"
+                top.location = "formValidator.php"
             }
         });
     }

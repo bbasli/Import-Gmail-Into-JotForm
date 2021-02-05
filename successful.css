@@ -10,6 +10,7 @@
     background-color: lightgrey;
     text-align: center;
     display: block;
+    margin: 5% auto;
 }
 
 #check-circle {
@@ -37,12 +38,13 @@
         position: absolute;
         top: 0;
     }
+
     .button {
         height: 50px;
     }
+
     .full-container {
         padding-bottom: 0;
         height: 100%;
     }
 }
-

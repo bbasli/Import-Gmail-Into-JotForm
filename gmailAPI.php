@@ -96,7 +96,7 @@ class GmailAPI
     private $labelID;
     private $maxResults;
 
-    public function __construct($client, $labelID = 'INBOX', $maxResults = 1000)
+    public function __construct($client, $labelID = 'INBOX', $maxResults = 100)
     {
         $this->client = $client;
         $this->userID = "me";
@@ -226,6 +226,7 @@ class GmailAPI
 $conn = new Connection();
 if ($conn->is_connected()) {
     $gmailAPI = new GmailAPI($conn->get_client());
+
     include "main.php";
 } else
     header('Location: ' . $conn->get_unauthenticated_data());
